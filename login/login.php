@@ -52,17 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // header('Location: ../../pages/index.php');  
 
-        $sql = "SELECT * FROM line WHERE name = 'admin'";
-		$query = $conn->prepare($sql);
-		$query->execute();
-		$res = $query->fetch(PDO::FETCH_OBJ);
-        if($query->rowCount()){
-            $sToken     = $res->token;  
-            $sMessage   = $row->name.' '. $row->sname;
-            $sMessage   .=  ' เข้าสู่ระบบเวร ';
-            sendLine($sToken,$sMessage);
-        }
-
+        
         http_response_code(200);
         $response = array('status'=>true,
                             'message'   => 'success', 
